@@ -2,18 +2,18 @@
     <form>
          <div>
                <div class="form-group">
-                    <label for="firstName">First Name</label>
+                    <label>First Name</label>
                     <input type="text"
-                    id="firstName"
                     class="form-control"
-                    :value="firstName">
+                    :value="firstName"
+                    @input="nameChanged">
                     </div>
                 <div class="form-group">
-                    <label for="lastName">Last Name</label>
+                    <label>Last Name</label>
                     <input type="text"
-                    id="lastName"
                     class="form-control"
-                    :value="lastName">
+                    :value="lastName"
+                    @input="nameChanged">
                 </div>
             </div>
         
@@ -28,10 +28,10 @@ export default {
     },
     computed: {
         firstName(){
-           return this.value.split('') [0];
+           return this.value.split(" ")[0];
         },
         lastName(){
-            return this.value.split('') [1];
+            return this.value.split(" ")[1];
         }
     }
 }
