@@ -1,10 +1,15 @@
 import Home from './components/Home.vue';
 import Header from './components/Header.vue';
 
+//transferring import statements into another syntax
 const User = resolve => {
     require.ensure(['./components/user/User.vue'], () => {
         resolve(require('./components/user/User.vue'));
-    }, 'user');
+    }, 'user');/* -webpack loads the component only when visiting
+                the component
+    -using a promise it resolves a route you really want to use
+    -for optimising performance, webpack downloads only the needed
+    extra boundles and loads them lazily */
 };
 
 const UserStart = resolve => {
